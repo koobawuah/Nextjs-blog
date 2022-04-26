@@ -1,4 +1,18 @@
 import Head from "next/head";
+import Link from "next/link";
+
+const PostItem = (props) => {
+  return (
+    <div>
+      <Link href={props.link}>
+        <a className="text-xl font-semibold tracking-tighter">{props.title}</a>
+      </Link>
+      <p className="pt-3 text-base font-normal tracking-normal truncate">
+        {props.body}
+      </p>
+    </div>
+  );
+};
 
 const posts = ({ Posts }) => {
   return (
@@ -9,14 +23,13 @@ const posts = ({ Posts }) => {
       <h1 className="text-3xl font-semibold tracking-tighter">
         Posts from Nextjs Blog
       </h1>
-      <p className="inline-block p-2 my-6 bg-green-300 rounded-lg"> New posts below: </p>
+      <p className="inline-block p-2 my-6 bg-green-300 rounded-lg">
+        New posts below
+      </p>
 
       <div className="px-6 space-y-4">
-        {Posts.map(({id, title, body}) => (
-          <div key={id}>
-            <h3 className="text-xl font-semibold tracking-tighter"> {title}</h3>
-            <p className="pt-3 text-base font-normal tracking-normal truncate"> {body}</p>
-          </div>
+        {Posts.map(({ id, title, body }) => (
+          <PostItem posts={Posts} key={id} title={title} body={body} link={`posts/${id}`}/>
         ))}
       </div>
     </div>

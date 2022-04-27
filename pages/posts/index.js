@@ -36,7 +36,7 @@ const posts = ({ Posts }) => {
   );
 };
 
-export async function getServerSideProps() {
+export async function getStaticProps() {
   const getData = await fetch("https://jsonplaceholder.typicode.com/posts/");
   const Posts = await getData.json();
   //console.log(Posts);

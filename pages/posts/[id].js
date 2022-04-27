@@ -15,4 +15,17 @@ const PostItem = () => {
 
 }
 
+
+export async function getStaticProps(context) {
+
+    const post;
+
+    return {
+        props : {
+            post,
+        }
+    }
+
+}
+
 export default PostItem;

@@ -1,3 +1,4 @@
+import Head from 'next/head';
 
 export async function getStaticPaths() {
 
@@ -32,6 +33,9 @@ const PostItemDetail = ({post}) => {
 
     return (
         <div>
+            <Head>
+                <title> Nextjs Blog - {title}</title>
+            </Head>
             <h1 className="text-3xl font-semibold tracking-tighter"> {`${id} - ${title}`} </h1>
             <p className="text-lg tracking-wider"> {body}</p>
         </div>

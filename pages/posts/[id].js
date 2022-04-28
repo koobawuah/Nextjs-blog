@@ -4,7 +4,7 @@ import { useRouter } from "next/router";
 const PostItem = () => {
 
     const route  = useRouter()
-    const { id } = route.query1
+    const { id } = route.query
 
     return (
         <div>

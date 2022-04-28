@@ -1,31 +1,47 @@
-import { useRouter } from "next/router";
 
+const PostItemDetail = (Post) => {
 
-const PostItem = () => {
-
-    const route  = useRouter()
-    const { id } = route.query
 
     return (
         <div>
-            <h1 className="text-3xl font-semibold tracking-tighter">Title </h1>
-            <p className="text-base tracking-normal">{id}</p>
+            <h1 className="text-3xl font-semibold tracking-tighter"> {Post.id} - {Post.title} </h1>
+            <p className="text-base tracking-normal">{Post.body?Post.body:`Hello, nothing here`}</p>
         </div>
     )
 
 }
 
 
-export async function getStaticProps(context) {
+export default PostItemDetail;
 
-    const post;
+
+
+export async function getStaticPaths() {
+
+    const res = await fetch('https://jsonplaceholder.typicode.com/posts')
+    const data = await res.json()
+    const paths = data.map(post => ({
+        params: { id: post.id.toString() }
+    })
+    )
 
     return {
-        props : {
-            post,
-        }
+        paths,
+        fallback: false,
     }
-
 }
 
-export default PostItem;
+
+export async function getStaticProps({params}){
+
+    const res = await fetch(`https://jsonplaceholder.typicode.com/posts/${params.id}`)
+    const Post  = await res.json()
+    console.log(Post)
+
+
+    return {
+        props: {
+            Post,
+        },
+    }
+}

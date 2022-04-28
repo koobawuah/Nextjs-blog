@@ -12,7 +12,6 @@ export default function Home() {
         </Head>
       </div>
       <h1 className="p-6 text-3xl font-semibold tracking-tighter">Blog Nextjs </h1>
-      { console.log("hello") }
     </>
   );
 }

@@ -29,7 +29,7 @@ const posts = ({ Posts }) => {
 
       <div className="px-6 space-y-4">
         {Posts.map(({ id, title, body }) => (
-          <PostItem posts={Posts} key={id} title={title} body={body} link={`posts/${id}`}/>
+          <PostItem key={id} title={title} body={body} link={`posts/${id}`}/>
         ))}
       </div>
     </div>

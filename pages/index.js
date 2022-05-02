@@ -12,6 +12,7 @@ export default function Home() {
         </Head>
       </div>
       <h1 className="p-6 text-3xl font-semibold tracking-tighter">Blog Nextjs </h1>
+      <p className="px-6 pt-10 text-md font-light tracking-wider">Built dummy blog with NextJS, jsonplaceholder dummy content api, tailwindcss 3.0 for basic design</p>
     </>
   );
 }
